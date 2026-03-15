@@ -1,4 +1,4 @@
-import { getStudents, postStudent } from "../Models/UserModels.js"
+import { getStudents, postStudent } from "../Models/UserModel.js"
 
 export const getStudentsController = async (req, res) => {
 
@@ -10,8 +10,10 @@ export const getStudentsController = async (req, res) => {
 
     } catch (error) {
 
+        console.error(error)
+
         res.status(500).json({
-            message: "Error fetching students"
+            message: `Error creating student el error es:  ${error.message}`
         })
 
     }
@@ -50,8 +52,10 @@ export const createStudentController = async (req, res) => {
 
     } catch (error) {
 
+        console.error(error)
+
         res.status(500).json({
-            message: "Error creating student"
+            message: `Error creating student el error es:  ${error.message}`
         })
 
     }
