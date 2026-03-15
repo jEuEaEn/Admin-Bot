@@ -1,32 +1,58 @@
-import { getAllStudents, createStudent } from "../models/students.model.js"
+import { getStudents, postStudent } from "../Models/UserModels.js"
 
-export const getStudents = async (req, res) => {
+export const getStudentsController = async (req, res) => {
 
     try {
 
-        const students = await getAllStudents()
+        const students = await getStudents()
 
         res.json(students)
 
     } catch (error) {
 
-        res.status(500).json({ message: "Error fetching students" })
+        res.status(500).json({
+            message: "Error fetching students"
+        })
 
     }
 
 }
 
-export const postStudent = async (req, res) => {
+export const createStudentController = async (req, res) => {
 
     try {
 
-        const result = await createStudent(req.body)
+        const {
+            codigo_estudiante,
+            nombres,
+            apellidos,
+            tipo_documento,
+            numero_documento,
+            fecha_nacimiento,
+            grado,
+            anio_lectivo
+        } = req.body
 
-        res.json(result)
+        await postStudent(
+            codigo_estudiante,
+            nombres,
+            apellidos,
+            tipo_documento,
+            numero_documento,
+            fecha_nacimiento,
+            grado,
+            anio_lectivo
+        )
+
+        res.json({
+            message: "Student created successfully"
+        })
 
     } catch (error) {
 
-        res.status(500).json({ message: "Error creating student" })
+        res.status(500).json({
+            message: "Error creating student"
+        })
 
     }
 

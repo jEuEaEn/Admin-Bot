@@ -1,10 +1,9 @@
-import express from 'express'
+import { Router } from "express"
+import { getStudentsController, createStudentController } from "../Controllers/UserController.js"
 
-import { getStudents, postStudent } from '../Controllers/UserController.js'
+const router = Router()
 
-const router = express.Router()
-
-router.get("/Students", getStudents)
-router.post("/Students", postStudent)
+router.get("/students", getStudentsController)
+router.post("/students", createStudentController)
 
 export default router
