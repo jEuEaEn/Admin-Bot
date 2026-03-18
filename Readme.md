@@ -22,3 +22,7 @@ Este proyecto destaca por el uso estratégico de *Inteligencia Artificial* (Chat
 | *Integraciones*   | API de WhatsApp (UltraMsg / WATI)                  |
 | *IA Tools*        | ChatGPT, GitHub Copilot, Codeium                   |
 | *Despliegue*      | Git, GitHub Pages / Replit                         |
+
+---
+
+##
