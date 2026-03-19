@@ -1,4 +1,4 @@
-import app from "./Backend/app.js"
+import app from "./app.js"
 
 const PORT = 3000
 
