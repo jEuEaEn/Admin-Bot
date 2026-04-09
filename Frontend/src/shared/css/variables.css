@@ -1,5 +1,7 @@
 :root{
-    --Background1: black;
-    --Text1: white;
-    --Prymary:rgb(94, 94, 94);
+    --Background1: #16161a;
+    --Background2: #242629;
+    --ClInput: #7f5af0;
+    --Tittle: #fffffe;
+    --Text1: #94a1b2;
 }

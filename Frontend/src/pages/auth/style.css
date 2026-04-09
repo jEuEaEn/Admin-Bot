@@ -1,0 +1,74 @@
+
+
+body{
+
+    background-color: var(--Background1);
+    height: 100vh;
+    width: 100%;
+
+}
+
+main{
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+
+}
+
+.Login{
+
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+Form{
+
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    width: 50%;
+    background-color: var(--Background2);
+    padding: 15px;
+    border-radius: 20px;
+
+    label{
+
+        margin-top: 2px;
+        margin-bottom: 1px;
+        color: var(--Text1);
+
+    }
+
+    h1{
+
+        color: var(--Tittle);
+
+    }
+
+    input{
+
+        height: 30px;
+        border-radius: 10px;
+        background-color: var(--ClInput);
+        color: var(--Tittle);
+
+    }
+
+    button{
+
+        height: 25px;
+        margin-top: 15px;
+        border-radius: 15px;
+        background-color: var(--ClInput);
+        color: var(--Tittle);
+
+    }
+
+}
