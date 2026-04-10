@@ -32,8 +32,10 @@ Form{
 
     display: flex;
     flex-direction: column;
+    margin: 10px;
     padding: 5px;
-    width: 50%;
+    width: 500px;
+    min-width: 250px;
     background-color: var(--Background2);
     padding: 15px;
     border-radius: 20px;
@@ -46,7 +48,7 @@ Form{
 
     }
 
-    h1{
+    h1{ 
 
         color: var(--Tittle);
 
