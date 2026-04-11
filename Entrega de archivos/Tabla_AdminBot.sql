@@ -66,3 +66,16 @@ CREATE TABLE notas (
     FOREIGN KEY (id_materia) REFERENCES materias(id)
         ON DELETE CASCADE
 );
+
+CREATE TABLE usuarios (
+  id CHAR(36) PRIMARY KEY,
+  nombres VARCHAR(100) NOT NULL,
+  apellidos VARCHAR(100) NOT NULL,
+  correo VARCHAR(120) NOT NULL UNIQUE,
+  password_hash VARCHAR(255) NOT NULL,
+  telefono VARCHAR(20),
+  rol VARCHAR(30) NOT NULL DEFAULT 'admin',
+  activo BOOLEAN NOT NULL DEFAULT TRUE,
+  created_at TIMESTAMP,
+  updated_at TIMESTAMP
+);
