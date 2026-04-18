@@ -6,9 +6,9 @@ export const login = async (req, res)=>{
 
     try{
 
-        const {email, password} = req.body
+        const {correo, password_hash} = req.body
         
-        if(!email || !password){
+        if(!correo || !password_hash){
 
             return res.status(400).json({
 
@@ -19,7 +19,7 @@ export const login = async (req, res)=>{
 
         }
 
-        const user = await FindUserByEmail(email)
+        const user = await FindUserByEmail(correo)
 
         if(!user){
 
@@ -29,7 +29,7 @@ export const login = async (req, res)=>{
 
         }
 
-        const ValidarPassword = bcrypt.compare(password, user.password_hash)
+        const ValidarPassword = bcrypt.compare(password_hash, user.password_hash)
         
         if(!ValidarPassword){
 
@@ -46,7 +46,7 @@ export const login = async (req, res)=>{
 
                 id: user.id,
                 name: user.nombres,
-                email: user.email
+                correo: user.correo
 
             }
         })
