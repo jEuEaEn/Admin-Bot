@@ -4,7 +4,7 @@ import { guardarUsuario } from "../../shared/js/storage.js";
 
 const form = document.getElementById("Auth-form")
 const email = document.getElementById("Email")
-const usuario = document.getElementById("Username")
+const password = document.getElementById("Password")
 const Button = document.getElementById("SignIn")
 const error = document.getElementById("MErr")
 
@@ -24,9 +24,10 @@ form.addEventListener('submit', async function (e) {
         
     }
 
-    if(usuario.length < 6){
+    if(password.length < 6){
 
-        mostrarError(error, "El usuario debe tener minimo 6 caracteres")
+        mostrarError(error, "La contraseña debe tener minimo 6 caracteres")
+        return
 
     }
 
