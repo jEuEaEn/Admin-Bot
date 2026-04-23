@@ -8,14 +8,15 @@ const password = document.getElementById("Password")
 const Button = document.getElementById("SignIn")
 const error = document.getElementById("MErr")
 
+console.log("inicio")
 
 form.addEventListener('submit', async function (e) {
     e.preventDefault()
 
-    limpiarError()
+    limpiarError(error)
 
     const correo = email.value.trim()
-    const usuario = usuario.value.trim()
+    const PassWord = password.value.trim()
 
     if(!validarCorreo(correo)){
 
@@ -24,15 +25,33 @@ form.addEventListener('submit', async function (e) {
         
     }
 
-    if(password.length < 6){
+    if(PassWord.length < 6){
 
         mostrarError(error, "La contraseña debe tener minimo 6 caracteres")
         return
 
-    }
+    }try{
 
-    try{}
-    catch{}
+        const data = await request("/login", {
+            method: "POST",
+            body: { email: correo, password: PassWord}
+        })
+
+        console.log("DATA:", data)
+
+        if (data.ok) {
+            guardarUsuario(data);
+            window.location.href = "../dashboard/index.html";
+        } else {
+            mostrarError(error, "Credenciales incorrectas");
+        }
+
+    }catch(err){
+
+        mostrarError(error, "Error al iniciar secion")
+        console.log(err)
+
+    }
     finally{}
 
 })

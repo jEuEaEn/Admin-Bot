@@ -31,21 +31,24 @@ app.get("/",(req, res)=>{
 
 })
 
-const passwordList = [
+//   juan.perez@gmail.com   JuanBlaBla: $2b$10$MRr6nFh4AD0fRaOhToxia.I0CFLSJ.feYF4TV/yhGGxu9r30iw/Jm
+    /*
+    const passwordList = [
 
-    "JuanBlaBla",
-    "JoelBlaBla",
-    "AndresBlaBla",
-    "AlejandroBlaBla",
-    "GuillermoBlaBla"
+        "JuanBlaBla",
+        "JoelBlaBla",
+        "AndresBlaBla",
+        "AlejandroBlaBla",
+        "GuillermoBlaBla"
 
-]
+    ]
 
-for(let i = 0; i < passwordList.length; i++){
+    for(let i = 0; i < passwordList.length; i++){
 
-    const hash = await bcrypt.hash(passwordList[i], 10)
-    console.log(`Contraseña: ${passwordList[i]}, hash: ${hash}`)
+        const hash = await bcrypt.hash(passwordList[i], 10)
+        console.log(`Contraseña: ${passwordList[i]}, hash: ${hash}`)
 
-}
+    }
+    */
 
 export default app
