@@ -1,12 +1,15 @@
 import { request } from "../../shared/js/api.js";
 import { validarCorreo, limpiarError, mostrarError } from "../../shared/js/utils.js";
 import { guardarUsuario } from "../../shared/js/storage.js";
+import { verificarUsuario } from "../../shared/js/storage.js";
 
 const form = document.getElementById("Auth-form")
 const email = document.getElementById("Email")
 const password = document.getElementById("Password")
 const Button = document.getElementById("SignIn")
 const error = document.getElementById("MErr")
+
+
 
 console.log("inicio")
 

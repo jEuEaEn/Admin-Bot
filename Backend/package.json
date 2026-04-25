@@ -9,12 +9,12 @@
   "name": "adminbot",
   "version": "1.0.0",
   "description": "AdminBot es una aplicación web integral diseñada para centros educativos. Permite el registro de asistencia y el control de pagos de estudiantes, automatizando la comunicación con los padres de familia mediante alertas de WhatsApp en tiempo real.",
-  "main": "server.js",
+  "main": "./app.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ../server.js",
-    "dev": "nodemon ../server.js"
+    "start": "node ./app.js",
+    "dev": "nodemon ./app.js"
   },
   "repository": {
     "type": "git",

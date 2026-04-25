@@ -9,6 +9,7 @@ export const getDashboard = async (req, res) =>{
             ok: true,
             dashboard: data
         })
+ console.log("aaaaa")
 
     }catch(err){
 

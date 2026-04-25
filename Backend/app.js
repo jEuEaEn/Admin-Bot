@@ -1,5 +1,6 @@
 import express from "express"
 import bcrypt from "bcrypt"
+import cors from "cors"
 
 import userRoutes from "./Routes/UserRoutes.js"
 import acudentsRoutes from "./Routes/AcudientesRoutes.js"
@@ -13,7 +14,17 @@ import dashBoardsRoutes from "./Routes/dashboard.routes.js"
 
 
 const app = express()
-app.use(express.json())
+
+// Configuración de CORS más permisiva
+app.use(cors({
+    origin: ["http://localhost:5173", "http://127.0.0.1:5173"],
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization", "x-auth"]
+}))
+
+app.use(express.json({ limit: '10mb' }))
+app.use(express.urlencoded({ extended: true }))
 
 app.use("/api", userRoutes)
 app.use("/api", acudentsRoutes)
@@ -31,15 +42,24 @@ app.get("/",(req, res)=>{
 
 })
 
-//   juan.perez@gmail.com   JuanBlaBla: $2b$10$MRr6nFh4AD0fRaOhToxia.I0CFLSJ.feYF4TV/yhGGxu9r30iw/Jm
+
+const PORT = 3000
+
+app.listen(PORT, () => {
+
+    console.log(`Servidor corriendo en http://localhost:${PORT}`)
+
+})
+
     /*
+    
     const passwordList = [
 
-        "JuanBlaBla",
-        "JoelBlaBla",
-        "AndresBlaBla",
-        "AlejandroBlaBla",
-        "GuillermoBlaBla"
+        "123456",
+        "maria123",
+        "carlos123",
+        "laura123",
+        "admin123"
 
     ]
 
