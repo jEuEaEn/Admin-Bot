@@ -128,14 +128,14 @@ function renderStudents(students) {
     students.forEach((student) => {
         const row = document.createElement("tr");
         row.innerHTML = `
-            <td>${escapeHtml(student.student_code || "—")}</td>
-            <td>${escapeHtml(student.first_name || "")} ${escapeHtml(student.last_name || "")}</td>
-            <td>${escapeHtml(student.grade || "—")}</td>
-            <td>${escapeHtml(student.document_type || "")} ${escapeHtml(student.document_number || "")}</td>
-            <td>${escapeHtml(student.school_year || "—")}</td>
+            <td>${escapeHtml(student.codigo_estudiante || "—")}</td>
+            <td>${escapeHtml(student.nombres || "")} ${escapeHtml(student.apellidos || "")}</td>
+            <td>${escapeHtml(student.grado || "—")}</td>
+            <td>${escapeHtml(student.tipo_documento || "")} ${escapeHtml(student.numero_documento || "")}</td>
+            <td>${escapeHtml(student.anio_lectivo || "—")}</td>
             <td>
-                <span class="status-badge status-${student.status || "active"}">
-                    ${formatStatus(student.status)}
+                <span class="status-badge status-${student.estado || "activo"}">
+                    ${formatStatus(student.estado)}
                 </span>
             </td>
             <td>
@@ -161,9 +161,9 @@ function filterStudents(searchTerm) {
         searchInfo.textContent = "";
     } else {
         filteredStudents = allStudents.filter((student) => {
-            const code = (student.student_code || "").toLowerCase();
-            const firstName = (student.first_name || "").toLowerCase();
-            const lastName = (student.last_name || "").toLowerCase();
+            const code = (student.codigo_estudiante || "").toLowerCase();
+            const firstName = (student.nombres || "").toLowerCase();
+            const lastName = (student.apellidos || "").toLowerCase();
             const fullName = `${firstName} ${lastName}`;
 
             return code.includes(term) || fullName.includes(term);
@@ -218,34 +218,40 @@ function closeModalWindow() {
 // ============================================================================
 async function handleFormSubmit(e) {
     e.preventDefault();
+    e.stopPropagation();
 
     const form = e.target;
     const submitBtn = form.querySelector('button[type="submit"]');
 
     console.log("📝 Enviando formulario de nuevo estudiante...");
+    console.log("🔍 Form element:", form);
+    console.log("🔍 Form ID:", form.id);
 
     // Disable submit button
     submitBtn.disabled = true;
     submitBtn.textContent = "Registrando...";
 
     try {
-        // Gather form data
-        const formData = new FormData(form);
+        // Gather form data - obtener valores directamente de los inputs
+        const getValue = (id) => {
+            const el = document.getElementById(id);
+            return el ? el.value : null;
+        };
 
         // Convertir ISO timestamp a formato MySQL (YYYY-MM-DD HH:MM:SS)
         const now = new Date();
         const mysqlDatetime = now.toISOString().slice(0, 19).replace('T', ' ');
 
         const studentData = {
-            student_code: formData.get("student_code"),
-            first_name: formData.get("first_name"),
-            last_name: formData.get("last_name"),
-            document_type: formData.get("document_type"),
-            document_number: formData.get("document_number"),
-            birth_date: formData.get("birth_date"),
-            grade: formData.get("grade"),
-            school_year: formData.get("school_year"),
-            status: formData.get("status"),
+            codigo_estudiante: getValue("studentCode"),
+            nombres: getValue("firstName"),
+            apellidos: getValue("lastName"),
+            tipo_documento: getValue("documentType"),
+            numero_documento: getValue("documentNumber"),
+            fecha_nacimiento: getValue("birthDate"),
+            grado: getValue("grade"),
+            anio_lectivo: getValue("schoolYear"),
+            estado: getValue("status"),
             created_at: mysqlDatetime,
             updated_at: mysqlDatetime,
         };
@@ -288,18 +294,21 @@ async function handleFormSubmit(e) {
 // ============================================================================
 function validateStudentData(data) {
     const requiredFields = [
-        "student_code",
-        "first_name",
-        "last_name",
-        "document_type",
-        "document_number",
-        "birth_date",
-        "grade",
-        "school_year",
-        "status",
+        "codigo_estudiante",
+        "nombres",
+        "apellidos",
+        "tipo_documento",
+        "numero_documento",
+        "fecha_nacimiento",
+        "grado",
+        "anio_lectivo",
+        "estado",
     ];
 
-    return requiredFields.every((field) => data[field] && data[field].trim() !== "");
+    console.log("🔍 Validando datos:", data);
+    console.log("🔍 Campos requeridos:", requiredFields);
+
+    return requiredFields.every((field) => data[field] && data[field].toString().trim() !== "");
 }
 
 // ============================================================================

@@ -16,14 +16,15 @@ export const postStudent = async (
     numero_documento,
     fecha_nacimiento,
     grado,
-    anio_lectivo
+    anio_lectivo,
+    estado
 ) => {
 
     const [result] = await pool.query(
 
         `INSERT INTO estudiantes
-        (id, codigo_estudiante, nombres, apellidos, tipo_documento, numero_documento, fecha_nacimiento, grado, anio_lectivo)
-        VALUES (UUID(), ?, ?, ?, ?, ?, ?, ?, ?)`,
+        (codigo_estudiante, nombres, apellidos, tipo_documento, numero_documento, fecha_nacimiento, grado, anio_lectivo, estado, created_at, updated_at)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), NOW())`,
         
         [
             codigo_estudiante,
@@ -33,7 +34,8 @@ export const postStudent = async (
             numero_documento,
             fecha_nacimiento,
             grado,
-            anio_lectivo
+            anio_lectivo,
+            estado || 'activo'
         ]
     )
 

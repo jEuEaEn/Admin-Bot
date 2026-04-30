@@ -32,7 +32,8 @@ export const createStudentController = async (req, res) => {
             numero_documento,
             fecha_nacimiento,
             grado,
-            anio_lectivo
+            anio_lectivo,
+            estado
         } = req.body
 
         await postStudent(
@@ -43,7 +44,8 @@ export const createStudentController = async (req, res) => {
             numero_documento,
             fecha_nacimiento,
             grado,
-            anio_lectivo
+            anio_lectivo,
+            estado
         )
 
         res.json({
