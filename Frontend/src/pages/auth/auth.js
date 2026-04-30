@@ -2,6 +2,8 @@ import { request } from "../../shared/js/api.js";
 import { validarCorreo, limpiarError, mostrarError } from "../../shared/js/utils.js";
 import { guardarUsuario } from "../../shared/js/storage.js";
 import { verificarUsuario } from "../../shared/js/storage.js";
+import Toastify from 'toastify-js'
+import "toastify-js/src/toastify.css"
 
 const form = document.getElementById("Auth-form")
 const email = document.getElementById("Email")
@@ -43,8 +45,26 @@ form.addEventListener('submit', async function (e) {
         console.log("DATA:", data)
 
         if (data.ok) {
-            guardarUsuario(data);
-            window.location.href = "../dashboard/index.html";
+
+            Toastify({
+                text: "Login Exitoso",
+                duration: 2000,
+                destination: "https://github.com/apvarun/toastify-js",
+                newWindow: true,
+                close: true,
+                gravity: "top", // `top` or `bottom`
+                position: "left", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                  background: "linear-gradient(to right, #00b09b, #96c93d)",
+                },
+                onClick: function(){} // Callback after click
+                }).showToast();
+                setTimeout(() =>{
+                    window.location.href = "../dashboard/index.html";
+                    guardarUsuario(data);
+
+                },2000)
         } else {
             mostrarError(error, "Credenciales incorrectas");
         }

@@ -1,11 +1,9 @@
 
 
 body{
-
-    background-color: var(--Background1);
+    background-color: var(--bg-dark);
     height: 100vh;
     width: 100%;
-
 }
 
 main{
@@ -29,57 +27,38 @@ main{
 }
 
 Form{
-
     display: flex;
     flex-direction: column;
     margin: 10px;
     padding: 5px;
     width: 500px;
     min-width: 250px;
-    background-color: var(--Background2);
+    background-color: var(--panel-bg);
     padding: 15px;
     border-radius: 20px;
-
-    label{
-
-        margin-top: 2px;
-        margin-bottom: 1px;
-        color: var(--Text1);
-
-    }
-
-    h1{ 
-
-        color: var(--Tittle);
-
-    }
-
-    input{
-
-        height: 30px;
-        border-radius: 10px;
-        background-color: var(--ClInput);
-        color: var(--Tittle);
-
-    }
-
-    button{
-
-        height: 25px;
-        margin-top: 15px;
-        border-radius: 15px;
-        background-color: var(--ClInput);
-        color: var(--Tittle);
-
-    }
-
-    #MEer{
-
-        padding: 20px;
-        color: white;
-
-    }
-
-
-    
+}
+Form label {
+    margin-top: 2px;
+    margin-bottom: 1px;
+    color: var(--text-secondary);
+}
+Form h1 {
+    color: var(--text-primary);
+}
+Form input {
+    height: 30px;
+    border-radius: 10px;
+    background-color: var(--accent-color);
+    color: var(--text-primary);
+}
+Form button {
+    height: 25px;
+    margin-top: 15px;
+    border-radius: 15px;
+    background-color: var(--accent-color);
+    color: var(--text-primary);
+}
+Form #MEer {
+    padding: 20px;
+    color: white;
 }

@@ -15,7 +15,7 @@ export const getDashboardData = async ()=>{
         SELECT COUNT(*) AS total
         FROM asistencias
         WHERE fecha = CURDATE()
-        AND estado = 'falla'
+        AND estado = 'Falla'
 
         `)
 

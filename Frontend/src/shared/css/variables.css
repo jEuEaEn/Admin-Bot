@@ -1,7 +1,12 @@
-:root{
-    --Background1: #16161a;
-    --Background2: #242629;
-    --ClInput: #7f5af0;
-    --Tittle: #fffffe;
-    --Text1: #94a1b2;
+:root {
+    --bg-dark: #16161a;
+    --panel-bg: #242629;
+    --accent-color: #7f5af0;
+    --accent-blue: #4eb3ff;
+    --success-color: #3ff57a;
+    --warning-color: #ffe066;
+    --danger-color: #ff4d4d;
+    --text-primary: #fffffe;
+    --text-secondary: #94a1b2;
+    --border-color: #232336;
 }

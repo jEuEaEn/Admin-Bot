@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdminBot | Estudiantes</title>
+    <link rel="stylesheet" href="../../shared/css/layout.css">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-icon"></div>
+                <h2>AdminBot</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="../dashboard/index.html" class="nav-item"><span>🏠</span> Dashboard</a>
+                <a href="../students/index.html" class="nav-item active"><span>👥</span> Estudiantes</a>
+                <a href="../attendance/index.html" class="nav-item"><span>📅</span> Asistencia</a>
+                <a href="../payments/index.html" class="nav-item"><span>💰</span> Pagos</a>
+                <a href="../alerts/index.html" class="nav-item"><span>🔔</span> Alertas</a>
+                <a href="../settings/index.html" class="nav-item"><span>⚙️</span> Configuración</a>
+            </nav>
+        </aside>
+
+        <div class="main-layout">
+            <header class="top-header">
+                <h1>Gestión de Estudiantes</h1>
+                <button class="btn btn-primary" id="btnNewStudent">+ Nuevo Estudiante</button>
+            </header>
+
+            <main class="content-body">
+                <!-- Search Bar -->
+                <div class="card search-card">
+                    <div class="search-container">
+                        <span class="search-icon">🔍</span>
+                        <input
+                            type="text"
+                            id="searchInput"
+                            class="search-input"
+                            placeholder="Buscar por ID de estudiante o correo..."
+                        >
+                    </div>
+                    <div class="search-info" id="searchInfo"></div>
+                </div>
+
+                <!-- Students Table -->
+                <div class="card table-container">
+                    <div class="table-header">
+                        <h3>Estudiantes Registrados</h3>
+                        <span class="student-count" id="studentCount">Total: 0</span>
+                    </div>
+                    <div class="table-wrapper">
+                        <table id="studentsTable">
+                            <thead>
+                                <tr>
+                                    <th>ID Estudiante</th>
+                                    <th>Nombre Completo</th>
+                                    <th>Grado</th>
+                                    <th>Documento</th>
+                                    <th>Año Escolar</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="studentsBody">
+                                <tr class="loading-row">
+                                    <td colspan="7" class="loading-text">Cargando estudiantes...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="emptyState" class="empty-state" style="display: none;">
+                        <p>No se encontraron estudiantes. Crea uno nuevo para comenzar.</p>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Modal para Nuevo Estudiante -->
+    <div id="modalNewStudent" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Registrar Nuevo Estudiante</h2>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+
+            <form id="formNewStudent" class="student-form">
+                <div class="form-group">
+                    <label for="studentCode">Código de Estudiante *</label>
+                    <input type="text" id="studentCode" name="student_code" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">Nombre *</label>
+                        <input type="text" id="firstName" name="first_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Apellido *</label>
+                        <input type="text" id="lastName" name="last_name" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="documentType">Tipo de Documento *</label>
+                        <select id="documentType" name="document_type" required>
+                            <option value="">Seleccionar...</option>
+                            <option value="CC">Cédula de Ciudadanía</option>
+                            <option value="TI">Tarjeta de Identidad</option>
+                            <option value="PA">Pasaporte</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="documentNumber">Número de Documento *</label>
+                        <input type="text" id="documentNumber" name="document_number" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="birthDate">Fecha de Nacimiento *</label>
+                        <input type="date" id="birthDate" name="birth_date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="grade">Grado *</label>
+                        <input type="text" id="grade" name="grade" placeholder="Ej: 5º Grado" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="schoolYear">Año Escolar *</label>
+                        <input type="text" id="schoolYear" name="school_year" placeholder="Ej: 2024" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Estado *</label>
+                        <select id="status" name="status" required>
+                            <option value="">Seleccionar...</option>
+                            <option value="active">Activo</option>
+                            <option value="inactive">Inactivo</option>
+                            <option value="suspended">Suspendido</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-outline" id="btnCancel">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Registrar Estudiante</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="../../shared/js/api.js"></script>
+    <script type="module" src="./students.js"></script>
+</body>
+</html>
