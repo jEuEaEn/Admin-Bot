@@ -11,6 +11,7 @@ import noteRoutes from "./Routes/NotasRoutes.js"
 import teachersRoutes from "./Routes/ProfesoresRoutes.js"
 import authRoutes from "./Routes/auth.routes.js"
 import dashBoardsRoutes from "./Routes/dashboard.routes.js"
+import WhatsAppRoutes from "./modules/whatsApp/whatsapp.routes.js"
 
 
 const app = express()
@@ -35,6 +36,7 @@ app.use("/api", noteRoutes)
 app.use("/api", teachersRoutes)
 app.use("/api", authRoutes)
 app.use("/api", dashBoardsRoutes)
+app.use("/api", WhatsAppRoutes)
 
 app.get("/",(req, res)=>{
 

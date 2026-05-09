@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdminBot | Pagos</title>
+    <link rel="stylesheet" href="../../shared/css/layout.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header"><div class="logo-icon"></div><h2>AdminBot</h2></div>
+            <nav class="sidebar-nav">
+                <a href="../dashboard/index.html" class="nav-item"><span>🏠</span> Dashboard</a>
+                <a href="../students/index.html" class="nav-item"><span>👥</span> Estudiantes</a>
+                <a href="../attendance/index.html" class="nav-item"><span>📅</span> Asistencia</a>
+                <a href="../payments/index.html" class="nav-item active"><span>💰</span> Pagos</a>
+                <a href="../alerts/index.html" class="nav-item"><span>🔔</span> Alertas</a>
+                <a href="../settings/index.html" class="nav-item"><span>⚙️</span> Configuración</a>
+            </nav>
+        </aside>
+        <div class="main-layout">
+            <header class="top-header"><h1>Gestión de Pagos</h1></header>
+            <main class="content-body">
+                <div class="payment-summary">
+                    <div class="card"><h3>Recaudado Mes</h3><p class="stat-value">$4.5M</p></div>
+                    <div class="card"><h3>Pendiente</h3><p class="stat-value" style="color: var(--warning-color)">$1.2M</p></div>
+                    <div class="card"><h3>Mora</h3><p class="stat-value" style="color: var(--danger-color)">$300k</p></div>
+                </div>
+                <div class="card">
+                    <h3>Historial Reciente</h3>
+                    <div class="payment-list">
+                        <div class="payment-item">
+                            <div><strong>Juan Pérez</strong><br><small>Mensualidad Abril</small></div>
+                            <div class="amount">$150.000</div>
+                        </div>
+                        <div class="payment-item">
+                            <div><strong>Ana García</strong><br><small>Mensualidad Abril</small></div>
+                            <div class="amount">$150.000</div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

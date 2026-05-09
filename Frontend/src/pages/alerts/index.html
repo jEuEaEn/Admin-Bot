@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdminBot | Alertas</title>
+    <link rel="stylesheet" href="../../shared/css/layout.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header"><div class="logo-icon"></div><h2>AdminBot</h2></div>
+            <nav class="sidebar-nav">
+                <a href="../dashboard/index.html" class="nav-item"><span>🏠</span> Dashboard</a>
+                <a href="../students/index.html" class="nav-item"><span>👥</span> Estudiantes</a>
+                <a href="../attendance/index.html" class="nav-item"><span>📅</span> Asistencia</a>
+                <a href="../payments/index.html" class="nav-item"><span>💰</span> Pagos</a>
+                <a href="../alerts/index.html" class="nav-item active"><span>🔔</span> Alertas</a>
+                <a href="../settings/index.html" class="nav-item"><span>⚙️</span> Configuración</a>
+            </nav>
+        </aside>
+        <div class="main-layout">
+            <header class="top-header"><h1>Historial de Alertas (WhatsApp)</h1></header>
+            <main class="content-body">
+                <div class="card alert-card">
+                    <div class="alert-icon">📱</div>
+                    <div class="alert-info">
+                        <strong>Inasistencia: Juan Pérez</strong>
+                        <p>Mensaje enviado a: 300 123 4567</p>
+                    </div>
+                    <div class="alert-time">Hoy, 8:30 AM</div>
+                </div>
+                <div class="card alert-card">
+                    <div class="alert-icon">💰</div>
+                    <div class="alert-info">
+                        <strong>Recordatorio de Pago: Ana García</strong>
+                        <p>Mensaje enviado a: 301 234 5678</p>
+                    </div>
+                    <div class="alert-time">Ayer, 4:15 PM</div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

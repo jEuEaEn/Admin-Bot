@@ -1,0 +1,105 @@
+/* Pagos - Estilos */
+.payment-summary {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    margin-bottom: 26px;
+}
+
+.payment-summary .card,
+.main-layout > .card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 28px;
+    padding: 28px;
+    box-shadow: 0 26px 70px rgba(0, 0, 0, 0.16);
+    backdrop-filter: blur(14px);
+}
+
+.payment-summary .card h3,
+.main-layout > .card h3 {
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 14px;
+}
+
+.stat-value {
+    font-size: 2.1rem;
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+.payment-list {
+    display: grid;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.payment-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 22px;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.payment-item:hover {
+    transform: translateY(-2px);
+    border-color: rgba(78, 179, 255, 0.3);
+}
+
+.payment-item strong {
+    display: block;
+    color: var(--text-primary);
+    font-size: 1rem;
+    margin-bottom: 6px;
+}
+
+.payment-item small {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.amount {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--accent-blue);
+    white-space: nowrap;
+}
+
+.top-header {
+    margin-bottom: 26px;
+}
+
+.top-header h1 {
+    font-size: clamp(1.9rem, 2.6vw, 2.6rem);
+    color: var(--text-primary);
+}
+
+@media (max-width: 1024px) {
+    .payment-summary {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 760px) {
+    .payment-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .payment-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .amount {
+        width: 100%;
+        text-align: right;
+        margin-top: 12px;
+    }
+}

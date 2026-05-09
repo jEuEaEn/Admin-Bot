@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdminBot | Asistencia</title>
+    <link rel="stylesheet" href="../../shared/css/layout.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header"><div class="logo-icon"></div><h2>AdminBot</h2></div>
+            <nav class="sidebar-nav">
+                <a href="../dashboard/index.html" class="nav-item"><span>🏠</span> Dashboard</a>
+                <a href="../students/index.html" class="nav-item"><span>👥</span> Estudiantes</a>
+                <a href="../attendance/index.html" class="nav-item active"><span>📅</span> Asistencia</a>
+                <a href="../payments/index.html" class="nav-item"><span>💰</span> Pagos</a>
+                <a href="../alerts/index.html" class="nav-item"><span>🔔</span> Alertas</a>
+                <a href="../settings/index.html" class="nav-item"><span>⚙️</span> Configuración</a>
+            </nav>
+        </aside>
+        <div class="main-layout">
+            <header class="top-header"><h1>Registro de Asistencia</h1></header>
+            <main class="content-body">
+                <div class="card">
+                    <div class="attendance-controls">
+                        <div class="form-group">
+                            <label>Fecha:</label>
+                            <input type="date" value="2024-04-22">
+                        </div>
+                        <div class="form-group">
+                            <label>Grado:</label>
+                            <select class="btn btn-outline"><option>Todos</option><option>5º Grado</option></select>
+                        </div>
+                        <button class="btn btn-primary">Guardar Registro</button>
+                    </div>
+                    <div class="attendance-grid">
+                        <div class="card student-check"><span>Juan Pérez</span><div class="toggle-status active"></div></div>
+                        <div class="card student-check"><span>Ana García</span><div class="toggle-status active"></div></div>
+                        <div class="card student-check"><span>Luis Mora</span><div class="toggle-status"></div></div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

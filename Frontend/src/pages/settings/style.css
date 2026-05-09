@@ -1,0 +1,72 @@
+/* Configuración - Estilos */
+.card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 28px;
+    padding: 30px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.16);
+    backdrop-filter: blur(12px);
+}
+
+.settings-section {
+    display: grid;
+    gap: 24px;
+}
+
+.settings-section h3 {
+    margin: 0;
+    color: var(--accent-blue);
+    font-size: 1.2rem;
+}
+
+.form-group {
+    display: grid;
+    gap: 10px;
+}
+
+label {
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+textarea {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    color: var(--text-primary);
+    padding: 20px;
+    border-radius: 20px;
+    min-height: 140px;
+    resize: vertical;
+    transition: border-color 0.2s ease, background 0.2s ease;
+    font-family: inherit;
+}
+
+textarea:focus {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(78, 179, 255, 0.7);
+}
+
+.btn {
+    width: fit-content;
+    min-height: 50px;
+    padding: 0 28px;
+    border-radius: 22px;
+    font-weight: 700;
+    border: none;
+    background: linear-gradient(135deg, #7f5af0, #4eb3ff);
+    color: #ffffff;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 44px rgba(78, 179, 255, 0.25);
+}
+
+@media (max-width: 760px) {
+    .settings-section {
+        gap: 18px;
+    }
+}
