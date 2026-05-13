@@ -3,13 +3,9 @@ import { request } from "../../shared/js/api.js";
 let allStudents = [];
 let filteredStudents = [];
 
-// ============================================================================
-// Initialize on DOM Load
-// ============================================================================
 document.addEventListener("DOMContentLoaded", async () => {
     console.log("🚀 Inicializando módulo de estudiantes...");
 
-    // Small delay to ensure all DOM elements are ready
     await new Promise(resolve => setTimeout(resolve, 100));
 
     initializeEventListeners();
@@ -18,13 +14,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.log("✅ Módulo de estudiantes inicializado");
 });
 
-// ============================================================================
-// Initialize Event Listeners
-// ============================================================================
 function initializeEventListeners() {
     console.log("🔧 Configurando event listeners...");
 
-    // Modal controls
     const btnNewStudent = document.getElementById("btnNewStudent");
     const btnCancel = document.getElementById("btnCancel");
     const closeBtn = document.getElementById("closeModal");
@@ -57,29 +49,23 @@ function initializeEventListeners() {
         closeModalWindow();
     });
 
-    // Close modal when clicking outside
     modal.addEventListener("click", (e) => {
         if (e.target === modal) {
             closeModalWindow();
         }
     });
 
-    // Search functionality
     const searchInput = document.getElementById("searchInput");
     if (searchInput) {
         searchInput.addEventListener("input", (e) => filterStudents(e.target.value));
     }
 
-    // Form submission
     const form = document.getElementById("formNewStudent");
     if (form) {
         form.addEventListener("submit", handleFormSubmit);
     }
 }
 
-// ============================================================================
-// Load Students from API
-// ============================================================================
 async function loadStudents() {
     try {
         const tbody = document.getElementById("studentsBody");

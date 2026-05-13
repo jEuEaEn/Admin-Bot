@@ -13,13 +13,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.getElementById("user-name").textContent = usuario.name;
     document.getElementById("welcome-message").textContent = `Bienvenido, ${usuario.user.name}`;
 
-    // Logout
     document.getElementById("logout-btn").addEventListener("click", () => {
         cerrarUsuario();
         window.location.href = "../auth/index.html";
     });
 
-    // Cargar datos
     try {
         const response = await request("/dashBoard");
         if (response.ok) {

@@ -11,8 +11,6 @@ const password = document.getElementById("Password")
 const Button = document.getElementById("SignIn")
 const error = document.getElementById("MErr")
 
-
-
 console.log("inicio")
 
 form.addEventListener('submit', async function (e) {
@@ -52,13 +50,13 @@ form.addEventListener('submit', async function (e) {
                 destination: "https://github.com/apvarun/toastify-js",
                 newWindow: true,
                 close: true,
-                gravity: "top", // `top` or `bottom`
-                position: "left", // `left`, `center` or `right`
-                stopOnFocus: true, // Prevents dismissing of toast on hover
+                gravity: "top",
+                position: "left",
+                stopOnFocus: true,
                 style: {
                   background: "linear-gradient(to right, #00b09b, #96c93d)",
                 },
-                onClick: function(){} // Callback after click
+                onClick: function(){}
                 }).showToast();
                 setTimeout(() =>{
                     window.location.href = "../dashboard/index.html";
